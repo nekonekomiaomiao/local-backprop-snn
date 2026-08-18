@@ -1,0 +1,85 @@
+loading MNIST ...
+topology: 784 -> CONV5x5x4 stride2 (共享权重, 104 参数) -> FC32 -> 10  (1405 neurons, 18898 params, 33770 edges)  seed=0
+R=200.0  f_da=C=3000.0  TARGET=1000.0  alpha=3e-08  sample=1.0s  train=10000
+  train 250/10000  loss(roll100) 0.0541  acc(roll100) 0.090  (88 s)
+  train 500/10000  loss(roll100) 0.0571  acc(roll100) 0.050  (179 s)
+    out rates: y=0 mean_other=19 total=170
+  >>> test acc @ 500: 0.130
+  train 750/10000  loss(roll100) 0.0489  acc(roll100) 0.220  (293 s)
+  train 1000/10000  loss(roll100) 0.0541  acc(roll100) 0.100  (383 s)
+    out rates: y=0 mean_other=78 total=703
+  >>> test acc @ 1000: 0.145
+  train 1250/10000  loss(roll100) 0.0477  acc(roll100) 0.280  (506 s)
+  train 1500/10000  loss(roll100) 0.0507  acc(roll100) 0.140  (627 s)
+    out rates: y=0 mean_other=105 total=947
+  >>> test acc @ 1500: 0.190
+  train 1750/10000  loss(roll100) 0.0470  acc(roll100) 0.260  (784 s)
+  train 2000/10000  loss(roll100) 0.0503  acc(roll100) 0.130  (905 s)
+    out rates: y=443 mean_other=37 total=774
+  >>> test acc @ 2000: 0.155
+  train 2250/10000  loss(roll100) 0.0500  acc(roll100) 0.180  (1062 s)
+  train 2500/10000  loss(roll100) 0.0478  acc(roll100) 0.190  (1184 s)
+    out rates: y=299 mean_other=61 total=847
+  >>> test acc @ 2500: 0.175
+  train 2750/10000  loss(roll100) 0.0472  acc(roll100) 0.170  (1340 s)
+  train 3000/10000  loss(roll100) 0.0493  acc(roll100) 0.170  (1448 s)
+    out rates: y=0 mean_other=157 total=1414
+  >>> test acc @ 3000: 0.215
+  train 3250/10000  loss(roll100) 0.0443  acc(roll100) 0.300  (1561 s)
+  train 3500/10000  loss(roll100) 0.0462  acc(roll100) 0.180  (1635 s)
+    out rates: y=224 mean_other=51 total=681
+  >>> test acc @ 3500: 0.200
+  train 3750/10000  loss(roll100) 0.0462  acc(roll100) 0.250  (1732 s)
+  train 4000/10000  loss(roll100) 0.0462  acc(roll100) 0.250  (1807 s)
+    out rates: y=477 mean_other=107 total=1442
+  >>> test acc @ 4000: 0.235
+  train 4250/10000  loss(roll100) 0.0466  acc(roll100) 0.200  (1903 s)
+  train 4500/10000  loss(roll100) 0.0433  acc(roll100) 0.260  (1978 s)
+    out rates: y=43 mean_other=150 total=1394
+  >>> test acc @ 4500: 0.225
+  train 4750/10000  loss(roll100) 0.0442  acc(roll100) 0.270  (2084 s)
+  train 5000/10000  loss(roll100) 0.0441  acc(roll100) 0.250  (2184 s)
+    out rates: y=76 mean_other=41 total=444
+  >>> test acc @ 5000: 0.275
+  train 5250/10000  loss(roll100) 0.0430  acc(roll100) 0.290  (2312 s)
+  train 5500/10000  loss(roll100) 0.0435  acc(roll100) 0.300  (2411 s)
+    out rates: y=89 mean_other=77 total=780
+  >>> test acc @ 5500: 0.235
+  train 5750/10000  loss(roll100) 0.0440  acc(roll100) 0.230  (2539 s)
+  train 6000/10000  loss(roll100) 0.0432  acc(roll100) 0.260  (2639 s)
+    out rates: y=200 mean_other=28 total=453
+  >>> test acc @ 6000: 0.290
+  train 6250/10000  loss(roll100) 0.0450  acc(roll100) 0.250  (2766 s)
+  train 6500/10000  loss(roll100) 0.0426  acc(roll100) 0.310  (2865 s)
+    out rates: y=208 mean_other=49 total=647
+  >>> test acc @ 6500: 0.240
+  train 6750/10000  loss(roll100) 0.0441  acc(roll100) 0.260  (3006 s)
+  train 7000/10000  loss(roll100) 0.0431  acc(roll100) 0.290  (3113 s)
+    out rates: y=122 mean_other=116 total=1163
+  >>> test acc @ 7000: 0.250
+  train 7250/10000  loss(roll100) 0.0417  acc(roll100) 0.330  (3251 s)
+  train 7500/10000  loss(roll100) 0.0412  acc(roll100) 0.320  (3359 s)
+    out rates: y=250 mean_other=106 total=1201
+  >>> test acc @ 7500: 0.325
+  train 7750/10000  loss(roll100) 0.0410  acc(roll100) 0.330  (3497 s)
+  train 8000/10000  loss(roll100) 0.0399  acc(roll100) 0.340  (3606 s)
+    out rates: y=36 mean_other=86 total=810
+  >>> test acc @ 8000: 0.285
+  train 8250/10000  loss(roll100) 0.0434  acc(roll100) 0.310  (3744 s)
+  train 8500/10000  loss(roll100) 0.0429  acc(roll100) 0.240  (3843 s)
+    out rates: y=367 mean_other=55 total=866
+  >>> test acc @ 8500: 0.295
+  train 8750/10000  loss(roll100) 0.0400  acc(roll100) 0.350  (3939 s)
+  train 9000/10000  loss(roll100) 0.0412  acc(roll100) 0.330  (4015 s)
+    out rates: y=193 mean_other=83 total=939
+  >>> test acc @ 9000: 0.295
+  train 9250/10000  loss(roll100) 0.0419  acc(roll100) 0.290  (4113 s)
+  train 9500/10000  loss(roll100) 0.0386  acc(roll100) 0.410  (4188 s)
+    out rates: y=280 mean_other=115 total=1313
+  >>> test acc @ 9500: 0.320
+  train 9750/10000  loss(roll100) 0.0410  acc(roll100) 0.280  (4285 s)
+  train 10000/10000  loss(roll100) 0.0402  acc(roll100) 0.340  (4362 s)
+    out rates: y=107 mean_other=159 total=1535
+  >>> test acc @ 10000: 0.390
+training done in 4383 s; final test acc (n=500) = 0.2920
+figure saved to mnist_result.png

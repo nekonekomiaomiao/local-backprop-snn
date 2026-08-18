@@ -1,0 +1,2 @@
+starting
+numpy ok

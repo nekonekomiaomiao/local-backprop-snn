@@ -1,0 +1,9 @@
+checkpoint,KAPPA,frozen_pulse_n1000,meanfield_n1000
+exp/k0p2_a15/mnist_checkpoint.npz,0.2,0.308,0.299
+exp/k0p2_a15_s1_20k/mnist_checkpoint.npz,0.2,0.295,0.387
+exp/k0p2_a10_30k/mnist_checkpoint.npz,0.2,0.300,0.295
+exp/k0p15_a15_30k/mnist_checkpoint.npz,0.15,0.279,0.319
+exp/k0p2_10k/mnist_checkpoint.npz,0.2,0.280,0.268
+exp/k0p2_20k/mnist_checkpoint.npz,0.2,0.098,0.312
+exp/k0p4_10k/mnist_checkpoint.npz,0.4,0.175,0.337
+exp/base/mnist_checkpoint.npz,0.0,0.126,0.128

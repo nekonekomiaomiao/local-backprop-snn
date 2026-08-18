@@ -1,0 +1,2 @@
+which,seed,N,SAMPLE_T,R,alpha,FDA,BIAS,TARGET,KAPPA,GAMMA,DT,loss_plateau,loss_std,frozen_acc,align_all,align_std,corr_W1,corr_W2,corr_W3,bias_W1,bias_W2,bias_W3,snr_W1,snr_W2,snr_W3,eff_W1,eff_W2,eff_W3,sign_W1,sign_W2,sign_W3,align_W1,align_W2,align_W3,ratio_W1,ratio_W2,ratio_W3
+shared,0,3000,1.0,200.0,1.5e-08,3000.0,30.0,1000.0,0.0,0.0,0.02,0.0479,0.0085,0.1480,+0.212,0.222,+0.016,+0.002,+0.005,1.128,0.149,0.062,0.090,0.066,0.108,0.059,0.117,0.174,0.750,0.428,0.300,+0.115,+0.171,+0.350,0.000,0.000,0.000

@@ -1,0 +1,29 @@
+loading MNIST ...
+topology: 784 -> CONV5x5x4 stride2 (共享权重, 104 参数) -> FC32 -> 10  (1405 neurons, 18898 params, 33770 edges)  seed=0
+R=200.0  f_da=C=3000.0  TARGET=1000.0  alpha=3e-08  sample=1.0s  train=3000
+  train 250/3000  loss(roll100) 0.0535  acc(roll100) 0.100  (117 s)
+  train 500/3000  loss(roll100) 0.0607  acc(roll100) 0.130  (208 s)
+    out rates: y=0 mean_other=109 total=981
+  >>> test acc @ 500: 0.190
+  train 750/3000  loss(roll100) 0.0533  acc(roll100) 0.240  (327 s)
+  train 1000/3000  loss(roll100) 0.0559  acc(roll100) 0.140  (418 s)
+    out rates: y=0 mean_other=79 total=707
+  >>> test acc @ 1000: 0.220
+  train 1250/3000  loss(roll100) 0.0483  acc(roll100) 0.230  (534 s)
+  train 1500/3000  loss(roll100) 0.0530  acc(roll100) 0.190  (624 s)
+    out rates: y=0 mean_other=132 total=1185
+  >>> test acc @ 1500: 0.205
+  train 1750/3000  loss(roll100) 0.0476  acc(roll100) 0.290  (740 s)
+  train 2000/3000  loss(roll100) 0.0526  acc(roll100) 0.190  (829 s)
+    out rates: y=474 mean_other=71 total=1108
+  >>> test acc @ 2000: 0.255
+  train 2250/3000  loss(roll100) 0.0492  acc(roll100) 0.260  (945 s)
+  train 2500/3000  loss(roll100) 0.0478  acc(roll100) 0.220  (1035 s)
+    out rates: y=141 mean_other=65 total=721
+  >>> test acc @ 2500: 0.205
+  train 2750/3000  loss(roll100) 0.0486  acc(roll100) 0.150  (1135 s)
+  train 3000/3000  loss(roll100) 0.0504  acc(roll100) 0.210  (1211 s)
+    out rates: y=0 mean_other=81 total=727
+  >>> test acc @ 3000: 0.230
+training done in 1233 s; final test acc (n=500) = 0.2800
+figure saved to mnist_result.png

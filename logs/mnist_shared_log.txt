@@ -1,0 +1,17 @@
+loading MNIST ...
+topology: 784 -> CONV5x5x4 stride2 (共享权重, 104 参数) -> FC32 -> 10  (1405 neurons, 18898 params, 33770 edges)  seed=0
+R=200.0  f_da=C=3000.0  TARGET=500.0  alpha=1e-08  sample=10.0s  train=2000
+  train 250/2000  loss(roll100) 0.0565  acc(roll100) 0.090  (681 s)
+  train 500/2000  loss(roll100) 0.0549  acc(roll100) 0.120  (1251 s)
+  >>> test acc @ 500: 0.080
+  train 750/2000  loss(roll100) 0.0503  acc(roll100) 0.080  (2156 s)
+  train 1000/2000  loss(roll100) 0.0503  acc(roll100) 0.160  (3000 s)
+  >>> test acc @ 1000: 0.155
+  train 1250/2000  loss(roll100) 0.0490  acc(roll100) 0.130  (4044 s)
+  train 1500/2000  loss(roll100) 0.0498  acc(roll100) 0.120  (4903 s)
+  >>> test acc @ 1500: 0.095
+  train 1750/2000  loss(roll100) 0.0488  acc(roll100) 0.160  (5916 s)
+  train 2000/2000  loss(roll100) 0.0488  acc(roll100) 0.110  (6603 s)
+  >>> test acc @ 2000: 0.130
+training done in 6781 s; final test acc (n=1000) = 0.1100
+figure saved to mnist_result.png

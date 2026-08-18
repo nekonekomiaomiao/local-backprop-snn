@@ -1,0 +1,3 @@
+loading MNIST ...
+meanfield_ckpts/k0p2/meanfield_checkpoint.npz  KAPPA=0.2  pulse_final=0.2030  pulse_avg=0.1980  pulse_spike=0.2070  meanfield=0.9580
+appended 1 row(s) to mnist_mf_pulse_eval_rscan.csv

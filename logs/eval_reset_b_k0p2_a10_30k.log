@@ -1,0 +1,4 @@
+loading MNIST ...
+exp/k0p2_a10_30k/mnist_checkpoint.npz  KAPPA=0.2  pulse_final=0.2830  pulse_avg=0.2850  pulse_spike=0.2820  meanfield=0.2950
+exp3/k0p2_a15_s2_20k/mnist_checkpoint.npz  KAPPA=0.2  pulse_final=0.1830  pulse_avg=0.2020  pulse_spike=0.1950  meanfield=0.2010
+appended 2 row(s) to mnist_mf_pulse_eval_reset.csv

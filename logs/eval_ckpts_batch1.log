@@ -1,0 +1,9 @@
+loading MNIST ...
+exp/k0p2_a15/mnist_checkpoint.npz  KAPPA=0.2  frozen_pulse=0.3080  meanfield=0.2990
+exp/k0p2_a15_s1_20k/mnist_checkpoint.npz  KAPPA=0.2  frozen_pulse=0.2950  meanfield=0.3870
+exp/k0p2_a10_30k/mnist_checkpoint.npz  KAPPA=0.2  frozen_pulse=0.3000  meanfield=0.2950
+exp/k0p15_a15_30k/mnist_checkpoint.npz  KAPPA=0.15  frozen_pulse=0.2790  meanfield=0.3190
+exp/k0p2_10k/mnist_checkpoint.npz  KAPPA=0.2  frozen_pulse=0.2800  meanfield=0.2680
+exp/k0p2_20k/mnist_checkpoint.npz  KAPPA=0.2  frozen_pulse=0.0980  meanfield=0.3120
+exp/k0p4_10k/mnist_checkpoint.npz  KAPPA=0.4  frozen_pulse=0.1750  meanfield=0.3370
+exp/base/mnist_checkpoint.npz  KAPPA=0.0  frozen_pulse=0.1260  meanfield=0.1280

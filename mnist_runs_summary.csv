@@ -1,0 +1,84 @@
+﻿# MNIST experiment summary (2026-08-13, frozen-eval test acc, n=1000)
+# v1=mnist_shallow (locally-connected), v2=mnist_shared (shared-weight conv)
+# downsample: avg=avg-pool(theta=4), stride=stride2 conv, max=WTA max-pool
+script,mode,N,SAMPLE_T,R,alpha,FDA,BIAS,TARGET,note,frozen_test_acc
+mnist_conv_snn,2conv+avgpool,300,1.0,200,1e-7,2000,30,200,,0.111
+mnist_shallow,avg,1500,0.5,200,1e-6,2000,30,200,,0.102
+mnist_shallow,avg,2000,1.0,400,2e-6,1000,30,400,,0.159
+mnist_shallow,avg,4000,1.0,400,5e-6,1000,30,400,weight explosion loss->19,0.102
+mnist_shallow,stride,2500,1.0,200,2e-6,1000,30,200,,0.147
+mnist_shallow,stride,2500,1.0,200,5e-6,8000,30,200,update saturation,0.088
+mnist_shallow,stride,800,4.0,200,1.25e-6,8000,30,400,weight explosion,0.101
+mnist_shallow,stride,2500,1.0,200,5e-8,4000,30,200,output collapse,0.111
+mnist_shallow,stride,10000,1.0,200,1e-7,3000,30,1000,best config,0.202
+mnist_shallow,stride,8000,1.0,200,1e-7,3000,30,1000,30k run stopped at 8k by user,~0.20-0.25 plateau
+mnist_shallow,stride,250,1.0,200,1e-7,3000,30,200,CE loss mode first try alpha too small,~0.08
+mnist_shallow,stride,~300,1.0,200,1e-6,3000,30,200,CE mode tau_sm=200 stopped by user,no data
+mnist_shared,shared+stride2,2000,10.0,200,1e-8,3000,30,500,cov~3% achieved,0.110
+mnist_shallow,stride,3000,1.0,200,1e-6,3000,30,200,CE loss mode tau_sm=200 formal run,0.114
+mnist_shallow,stride,800,1.0,200,1e-6,3000,30,200,CE probe tau_sm=1000,0.095
+mnist_shallow,stride,800,1.0,200,3e-7,3000,30,200,CE probe tau_sm=500,0.140
+mnist_shallow,stride,50000,1.0,200,1e-7,3000,30,1000,overnight run: overtraining degradation (peak 0.285@4k, final 0.124),0.124
+mnist_shared,shared+stride2,30000,1.0,200,3e-8,3000,30,1000,overnight run: real accumulation (0.285@30k periodic),0.202
+mnist_shared,shared+stride2,100000,1.0,200,3e-8,3000,30,1000,stopped by user at 2000 samples (runs/shared100k),TERMINATED
+mnist_shared,shared+stride2,30000,1.0,200,3e-8,3000,30,1000,stopped by user (runs/shared30k_seed1),TERMINATED
+table_measurements,10 configs see mnist_table_results.csv,,,,,,,,,2026-08-14
+# --- suppression pool series (2026-08-14, KAPPA=argv[11], alpha=3e-8 unless noted, DT=0.02, frozen n=500) ---
+mnist_shared,shared+stride2,3000,1.0,200,3e-8,3000,30,1000,exp/base kappa=0,0.134
+mnist_shared,shared+stride2,3000,1.0,200,3e-8,3000,30,1000,exp/k0p05 kappa=0.05,0.150
+mnist_shared,shared+stride2,3000,1.0,200,3e-8,3000,30,1000,exp/k0p1 kappa=0.1,0.158
+mnist_shared,shared+stride2,3000,1.0,200,3e-8,3000,30,1000,exp/k0p2 kappa=0.2,0.192
+mnist_shared,shared+stride2,3000,1.0,200,3e-8,3000,30,1000,exp/k0p4 kappa=0.4,0.280
+mnist_shared,shared+stride2,3000,1.0,200,3e-8,3000,30,1000,exp/g0p1 lateral gamma=0.1 (REJECTED),0.114
+mnist_shared,shared+stride2,3000,1.0,400,3e-8,6000,60,2000,exp/scaledR400 R+FDA+TARGET+BIAS synced DT=0.01 (REJECTED),0.106
+mnist_shared,shared+stride2,10000,1.0,200,3e-8,3000,30,1000,exp/k0p2_10k kappa=0.2,0.292
+mnist_shared,shared+stride2,10000,1.0,200,3e-8,3000,30,1000,exp/k0p4_10k kappa=0.4 (winner-take-all collapse),0.170
+mnist_shared,shared+stride2,5000,2.0,200,3e-8,3000,30,1000,exp/k0p2_dt2 kappa=0.2 SAMPLE_T=2 (no gain),0.172
+mnist_shared,shared+stride2,3000,1.0,200,3e-8,3000,30,1000,exp/k0p2_s1 kappa=0.2 seed=1,0.200
+mnist_shared,shared+stride2,10000,1.0,200,3e-8,3000,30,1000,exp/k0p3_10k kappa=0.3,0.224
+mnist_shared,shared+stride2,20000,1.0,200,3e-8,3000,30,1000,exp/k0p2_20k kappa=0.2 full-alpha (peak 0.31@11-13k then all-mute collapse),0.126
+mnist_shared,shared+stride2,20000,1.0,200,3e-8,3000,30,500,exp/k0p2_T500 kappa=0.2 TARGET=500 (ineffective),0.164
+mnist_shared,shared+stride2,20000,1.0,200,1.5e-8,3000,30,1000,exp/k0p2_a15 kappa=0.2 alpha-half (BEST),0.348
+mnist_shared,shared+stride2,20000,1.0,200,3e-8,3000,30,1000,exp/k0p15_20k kappa=0.15,0.250
+mnist_shared,shared+stride2,10000,1.0,200,3e-8,3000,30,1000,exp/k0p2_s1_10k kappa=0.2 seed=1 (repro 0.292),0.292
+mnist_shared,shared+stride2,20000,1.0,200,1.5e-8,3000,30,1000,exp/k0p2_a15_s1_20k kappa=0.2 alpha-half seed=1 (repro),0.334
+mnist_shared,shared+stride2,30000,1.0,200,1e-8,3000,30,1000,exp/k0p2_a10_30k kappa=0.2 alpha=1e-8,0.330
+mnist_shared,shared+stride2,30000,1.0,200,1.5e-8,3000,30,1000,exp/k0p15_a15_30k kappa=0.15 alpha-half,0.300
+mnist_shared,shared+stride2,30000,1.0,200,1.5e-8,3000,30,1000,exp/k0p2_a15_30k kappa=0.2 alpha-half (0.300 periodic@28k),PENDING
+# --- R hypothesis (SNR~sqrt(R), TARGET unscaled, interrupted by shutdown 2026-08-14) ---
+mnist_shared,shared+stride2,3000,1.0,400,1.5e-8,6000,60,1000,exp/r400_t1000_3k R=400 DT=0.01 kappa=0.2 (0.085@1k),INTERRUPTED
+mnist_shared,shared+stride2,2000,1.0,800,1.5e-8,12000,120,1000,exp/r800_t1000_2k R=800 DT=0.005 kappa=0.2 (out rates total=0 bad signal),INTERRUPTED
+mnist_shared,shared+stride2,100000,1.0,200,1.5e-8,3000,30,1000,exp/k0p2_a15_100k (0.185@2k, no checkpoint),INTERRUPTED
+mnist_shared,shared+stride2,100000,1.0,200,1e-8,3000,30,1000,exp/k0p2_a10_100k (0.115@2k, no checkpoint),INTERRUPTED
+# --- mean-field GD ceiling (gd_meanfield_shared.py, LR=1e-8, n=1000 eval) ---
+meanfield,shared+stride2,30000,1.0,LR=1e-8,kappa=0,test 0.900,,,,,2026-08-14
+meanfield,shared+stride2,30000,1.0,LR=1e-8,kappa=0.1,test 0.916,,,,,2026-08-14
+meanfield,shared+stride2,30000,1.0,LR=1e-8,kappa=0.2,test 0.915,,,,,2026-08-14
+meanfield,shared+stride2,30000,1.0,LR=1e-8,kappa=0.3,test 0.905,,,,,2026-08-14
+meanfield,shared+stride2,30000,1.0,LR=1e-8,kappa=0.4,test 0.913,,,,,2026-08-14
+meanfield,shared+stride2,300000,1.0,LR=1e-8,kappa=0.1,test 0.965,,,,,2026-08-14
+
+
+# --- 2026-08-15 batch (exp3/, DT=0.02 unless noted, frozen n=500) ---
+
+mnist_shared,shared+stride2,20000,1.0,200,1.5e-8,3000,30,1000,exp3/k0p2_a15_s2_20k kappa=0.2 alpha-half seed=2 (seed0/1/2 = 0.348/0.334/0.272; mean 0.318),0.272
+
+mnist_shared,shared+stride2,3000,1.0,400,3.75e-9,6000,60,1000,exp3/r400_a3p75_3k R=400 DT=0.01 kappa=0.2 alpha scaled 1/R^2 (REJECTED; output dead phases total=0/1),0.122
+
+mnist_shared,shared+stride2,2000,1.0,800,9.375e-10,12000,120,1000,exp3/r800_a0p9375_2k R=800 DT=0.005 kappa=0.2 alpha scaled (output dead total=0; terminated at 1k),TERMINATED
+
+mnist_shared,shared+stride2,2000,1.0,800,3.75e-9,12000,120,1000,exp3/r800_k0_a3p75_2k R=800 DT=0.005 kappa=0 alpha=3.75e-9 (REJECTED),0.106
+
+# --- checkpoint batch eval 2026-08-15 (frozen pulse n=1000 / mean-field n=1000, see mnist_checkpoint_eval_batch.csv) ---
+
+checkpoint_batch,8 checkpoints frozen n=1000 meanfield n=1000,,,,,,,,,2026-08-15
+meanfield,shared+stride2,~92.5k of 300k,1.0,LR=1e-8,kappa=0,test 0.927,,,,,STOPPED-by-user 2026-08-15 (no ckpt)
+meanfield,shared+stride2,~82.5k of 300k,1.0,LR=1e-8,kappa=0.1,test 0.930,,,,,STOPPED-by-user 2026-08-15 (no ckpt)
+meanfield,shared+stride2,~80k of 300k,1.0,LR=1e-8,kappa=0.2,test 0.917,,,,,STOPPED-by-user 2026-08-15 (no ckpt)
+meanfield,shared+stride2,~77.5k of 300k,1.0,LR=1e-8,kappa=0.4,test 0.927,,,,,STOPPED-by-user 2026-08-15 (no ckpt)
+# --- 2026-08-16 0.8 达成批次（reset 协议：样本边界 reset, argv[13]=1；评估 n=1000 reset 协议）---
+mnist_shared,shared+stride2,20000,1.0,200,1.5e-8,3000,30,1000,exp4/reset_a15_20k kappa=0.2 RESET=1 (final 0.767; indep 0.776/0.810/0.812),0.767
+mnist_shared,shared+stride2,30000,1.0,200,1e-8,3000,30,1000,exp4/reset_a10_30k kappa=0.2 RESET=1 (final 0.778; indep 0.789/0.815/0.811),0.778
+mnist_shared,shared+stride2,40000,1.0,200,1.5e-8/7.5e-9,3000,30,1000,exp4/reset_a15_cont kappa=0.2 RESET=1 20k+20k续跑 (final 0.824; indep 0.817/0.848/0.850) **0.8 TARGET ACHIEVED**,0.824
+# --- 2026-08-16 能力证明（均值场权重→脉冲读出, n=1000）---
+meanfield_pulse,reset读出,k0 k0p1 k0p2 k0p4 300k,1.0,LR=1e-8,kappa=0/0.1/0.2/0.4,均值场acc 0.954-0.961,脉冲reset读出 0.942-0.953/0.955-0.960/0.954-0.961 (单次/长窗/计数),2026-08-16

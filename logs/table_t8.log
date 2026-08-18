@@ -1,0 +1,14 @@
+loading MNIST ...
+  200/400  loss_roll 0.0672  (286s)
+  400/400  loss_roll 0.0650  (548s)
+== covariance (last 5 samples) ==
+  W1: corr(e,d)=+0.015  bias=1.490  E[e]=7.7 E[d]=0.9
+  W2: corr(e,d)=+0.004  bias=0.315  E[e]=1.5 E[d]=3.5
+  W3: corr(e,d)=-0.000  bias=0.002  E[e]=11.0 E[d]=-39.5
+== per-sample alignment (cos with descent dir -g) ==
+  W1: align=+0.188±0.312  |dP|/|g|=0.000  updateSNR=0.261  expEff=0.159  signCons=0.808
+  W2: align=+0.175±0.240  |dP|/|g|=0.000  updateSNR=0.110  expEff=0.139  signCons=0.469
+  W3: align=+0.291±0.221  |dP|/|g|=0.000  updateSNR=0.132  expEff=0.156  signCons=0.340
+  ALL : align=+0.218±0.266
+loss_plateau(last100) = 0.0650 ± 0.0309   train_acc_roll = 0.090   frozen_test_acc = 0.0960
+TSVROW|shared,0,400,4.0,200.0,1e-08,3000.0,30.0,500.0,0.0650,0.0309,0.0960,+0.218,0.266,+0.015,+0.004,-0.000,1.490,0.315,0.002,0.261,0.110,0.132,0.159,0.139,0.156,0.808,0.469,0.340,+0.188,+0.175,+0.291,0.000,0.000,0.000

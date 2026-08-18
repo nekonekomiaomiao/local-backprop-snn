@@ -1,0 +1,27 @@
+loading MNIST ...
+  200/3000  loss_roll 0.0601  (135s)
+  400/3000  loss_roll 0.0549  (224s)
+  600/3000  loss_roll 0.0548  (303s)
+  800/3000  loss_roll 0.0552  (381s)
+  1000/3000  loss_roll 0.0556  (460s)
+  1200/3000  loss_roll 0.0548  (539s)
+  1400/3000  loss_roll 0.0558  (619s)
+  1600/3000  loss_roll 0.0545  (699s)
+  1800/3000  loss_roll 0.0591  (780s)
+  2000/3000  loss_roll 0.0536  (858s)
+  2200/3000  loss_roll 0.0531  (935s)
+  2400/3000  loss_roll 0.0546  (1015s)
+  2600/3000  loss_roll 0.0518  (1094s)
+  2800/3000  loss_roll 0.0537  (1175s)
+  3000/3000  loss_roll 0.0536  (1254s)
+== covariance (last 5 samples) ==
+  W1: corr(e,d)=+0.008  bias=0.495  E[e]=7.3 E[d]=2.3
+  W2: corr(e,d)=+0.008  bias=6.173  E[e]=2.9 E[d]=0.4
+  W3: corr(e,d)=+0.006  bias=0.174  E[e]=8.3 E[d]=-39.4
+== per-sample alignment (cos with descent dir -g) ==
+  W1: align=+0.126±0.346  |dP|/|g|=0.000  updateSNR=0.080  expEff=0.033  signCons=0.798
+  W2: align=+0.198±0.218  |dP|/|g|=0.000  updateSNR=0.094  expEff=0.095  signCons=0.422
+  W3: align=+0.357±0.176  |dP|/|g|=0.000  updateSNR=0.116  expEff=0.120  signCons=0.248
+  ALL : align=+0.227±0.275
+loss_plateau(last100) = 0.0536 ± 0.0158   train_acc_roll = 0.120   frozen_test_acc = 0.1560
+TSVROW|shared,0,3000,1.0,200.0,1e-08,3000.0,30.0,1000.0,0.2,0.0,0.02,0.0536,0.0158,0.1560,+0.227,0.275,+0.008,+0.008,+0.006,0.495,6.173,0.174,0.080,0.094,0.116,0.033,0.095,0.120,0.798,0.422,0.248,+0.126,+0.198,+0.357,0.000,0.000,0.000

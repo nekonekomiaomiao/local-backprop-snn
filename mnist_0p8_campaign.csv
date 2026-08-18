@@ -1,0 +1,16 @@
+kind,dir,init,kappa,alpha,N,seed,sample_t,pulse_final,pulse_avg,pulse_spike,meanfield,note
+meanfield,meanfield_ckpts/k0,,0.0,1e-8,300000,0,,,,,,LR=1e-8 seed=0
+meanfield,meanfield_ckpts/k0p1,,0.1,1e-8,300000,0,,,,,,LR=1e-8 seed=0
+meanfield,meanfield_ckpts/k0p2,,0.2,1e-8,300000,0,,,,,,LR=1e-8 seed=0
+meanfield,meanfield_ckpts/k0p4,,0.4,1e-8,300000,0,,,,,,LR=1e-8 seed=0
+baseline,exp/k0p2_a15,,,,,,,0.265 (reset),,,0.299,历史最佳脉冲 κ=0.2 α=1.5e-8 20k；reset 评估 0.265/0.281/0.283
+baseline,exp3/k0p2_a15_s2_20k,,,,,,,0.195 (reset),,,,seed2 复现；reset 评估 0.195/0.200/0.199
+baseline,exp/k0p2_a15_s1_20k,,,,,,,0.334,,,,seed1 复现 (n=1000)
+baseline,exp/k0p2_a10_30k,,,,,,,0.330,,,,α=1e-8 30k (n=1000)
+pulse_train,exp4/reset_a15_20k,,0.2,1.5e-8,20000,0,1,0.776,0.810,0.812,0.821,reset协议 独立评估 n=1000
+pulse_train,exp4/reset_a10_30k,,0.2,1e-8,30000,0,1,0.789,0.815,0.811,0.822,reset协议 独立评估 n=1000
+pulse_train,exp4/reset_a15_cont,exp4/reset_a15_20k/mnist_checkpoint.npz,0.2,7.5e-9,20000,0,,0.817,0.848,0.850,0.861,完成：最终 n=1000 0.824；独立评估三读出全≥0.8
+mf_pulse_eval,meanfield_ckpts/k0,,0.0,,,,1,0.942,0.960,0.961,0.961,不reset 0.115; reset 0.942
+mf_pulse_eval,meanfield_ckpts/k0p1,,0.1,,,,1,0.947,0.955,0.959,0.962,不reset 0.164; reset 0.947
+mf_pulse_eval,meanfield_ckpts/k0p2,,0.2,,,,1,0.947,0.956,0.954,0.958,不reset 0.203; reset 0.947
+mf_pulse_eval,meanfield_ckpts/k0p4,,0.4,,,,1,0.953,0.955,0.954,0.954,不reset 0.175; reset 0.953

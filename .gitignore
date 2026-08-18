@@ -1,0 +1,18 @@
+# ---- 纯垃圾（自动生成，永远不入库）----
+__pycache__/
+*.py[cod]
+.egg-info/
+.venv/
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# ---- 历史残留 ----（意外嵌套的空壳复制目录，无独有内容；正式目录在根级）
+Project/
+
+# ---- 数据链接 ----（历史目录里指向本机绝对路径的符号链接，克隆后必断链）
+# 根级 mnist_data/ 本体已入库（clone 即跑，见 README 快速开始）
+**/mnist_data
+!/mnist_databuild/
+en_release/
