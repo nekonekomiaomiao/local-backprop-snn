@@ -35,7 +35,7 @@ An **online local error learning** framework (the paper's SDE framework) on **pr
 - **Pure spiking**: information travels in Poisson spike trains; weight updates are driven by the online product of **eligibility trace × local error**;
 - **Pure local**: each synapse updates using only the local signals of the neurons before and after it — no global gradient information required;
 - **Fully physical**: state decay relies on LIF membrane leakage (τ_m) + inter-sample silent interval (ISI), with no hard-reset hack;
-- **Result**: MNIST 784 → shared convolution (5×5×32, only 64 weight parameters) → FC128 → 10, random initialization,
+- **Result**: MNIST 784 → shared convolution (5×5×4, stride 2, 104 shared params) → FC32 → 10 (18,898 total params), random initialization,
   multi-seed frozen acceptance **0.877 ± 0.007** (5 seeds × n=500, all seeds ≥ 0.85).
 
 ## 📊 Main Results

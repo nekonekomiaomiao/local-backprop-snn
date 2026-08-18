@@ -96,7 +96,7 @@
 
 ### shared convolution
 - **Plain language**: one convolutional kernel's weights are reused at every position of the image — far fewer weights, and it still respects the "local learning" constraint.
-- **Code**: topology in `mnist_shared.py` (784→CONV5×5×32 str2→FC128→10; only 64 conv parameters).
+- **Code**: topology in `mnist_shared.py` (784→CONV5×5×4 str2→FC32→10; 104 shared conv parameters).
 
 ### three readouts (single / long-window / counting)
 - **Plain language**: three ways to read the same frozen evaluation — output at the last tick (single), average over a window (long-window), and total spike count over the window (counting) — to cross-check and avoid single-point noise.

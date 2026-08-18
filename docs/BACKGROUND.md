@@ -36,7 +36,7 @@ Paper theory (SDE framework: continuous-time form of online local BP on probabil
    │    parameter laws such as R×ΔT
    │
    ├─ 2. MNIST topology implementation (mnist_shared.py)
-   │    shared convolution (784→5×5×32 str2→FC128→10) — weight reuse without violating locality
+   │    shared convolution (784→5×5×4 str2→FC32→10) — weight reuse without violating locality
    │    correctness validation: gradient FD 12/12, forward equivalence, mean-field GD comparison
    │
    ├─ 3. Diagnostic toolchain (mnist_table.py / mnist_lif_table.py)
