@@ -16,3 +16,4 @@ Project/
 **/mnist_data
 !/mnist_databuild/
 en_release/
+!dist/windows_demo/mnist_data/
