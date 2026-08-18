@@ -103,11 +103,11 @@ tr, trl = load_mnist(train=True)
 te, tel = load_mnist(train=False)
 tr = tr.astype(np.float32) / 255.0
 te = te.astype(np.float32) / 255.0
-tr_flat = tr.reshape(60000, -1)
+tr_flat = tr.reshape(len(tr), -1)
 te_flat = te.reshape(10000, -1)
 
 steps = int(SAMPLE_T / DT)
-order = RNG.permutation(60000)[:N_TRAIN]
+order = RNG.permutation(len(tr_flat))[:N_TRAIN]
 
 u = np.zeros(N_NEURONS)
 r_est = np.zeros(N_NEURONS)
